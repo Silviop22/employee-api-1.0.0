@@ -32,6 +32,7 @@ public interface EmployeeAPI {
             produces = {"application/json"},
             consumes = {"application/json"},
             method = RequestMethod.POST)
+    @CrossOrigin
     ResponseEntity<Object> create(@ApiParam(value = "", required = true)
                                   @Valid @RequestBody Employee employee,
                                   @ApiParam(value = "The Organisation of the client/consuming system.") @RequestHeader(value = "x-channel", required = false) String xSourceOperator,
@@ -58,6 +59,7 @@ public interface EmployeeAPI {
             produces = {"application/json"},
             consumes = {"application/json"},
             method = RequestMethod.DELETE)
+    @CrossOrigin
     ResponseEntity<Employee> delete(
             @ApiParam(value = "The primary ID for the resource", required = true) @PathVariable("id") String id,
             @ApiParam(value = "", required = true) @Valid @RequestBody Patch employee);
@@ -76,6 +78,7 @@ public interface EmployeeAPI {
             produces = {"application/json"},
             consumes = {"application/json"},
             method = RequestMethod.GET)
+    @CrossOrigin
     ResponseEntity<Object> get(
             @ApiParam(value = "The Organisation of the client/consuming system.") @RequestHeader(value = "x-channel", required = false) String xSourceOperator,
             @ApiParam(value = "The Logical System Name (COBRA) of the client/consuming system.") @RequestHeader(value = "x-system", required = false) String xSourceSystem,
@@ -102,6 +105,7 @@ public interface EmployeeAPI {
             produces = {"application/json"},
             consumes = {"application/json"},
             method = RequestMethod.GET)
+    @CrossOrigin
     ResponseEntity<Object> getList(@ApiParam(value = "The identifier of the Product offering to search for, configured as the $.ids[0].$ value in the business object.") @Valid @RequestParam(value = "id", required = false) String id,
                                    @RequestParam(value = "categoryId", required = false) String category,
                                    @ApiParam(value = "A classification of the business object or component. This identifies the sub-type of the instance of object or component.") @Valid @RequestParam(value = "type", required = false) String type,
@@ -137,6 +141,7 @@ public interface EmployeeAPI {
             produces = {"application/json"},
             consumes = {"application/json-patch"},
             method = RequestMethod.PATCH)
+    @CrossOrigin
     ResponseEntity<Object> updatePartial(@ApiParam(value = "The primary ID for the resource", required = true) @PathVariable("id") String id, @ApiParam(value = "", required = true) @Valid @RequestBody Employee productOffering,
                                          @ApiParam(value = "The Organisation of the client/consuming system.") @RequestHeader(value = "x-channel", required = false) String xSourceOperator,
                                          @ApiParam(value = "The Logical System Name (COBRA) of the client/consuming system.") @RequestHeader(value = "x-system", required = false) String xSourceSystem,
